@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+        <div class="header">
+            <div class="brain-icon">🧠</div>
+            <h1>Ultimate Quiz Game</h1>
+            <p>Test your knowledge across multiple categories!</p>
+        </div>
+
+        <div class="form-group">
+            <label for="playerName">
+                <i class="icon">👤</i>
+                Player Name
+            </label>
+            <input type="text" id="playerName" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="category">
+                <i class="icon">🏷️</i>
+                Category
+            </label>
+            <select id="category">
+                <option value="all">All Categories</option>
+                <option value="technology">💻 Technology</option>
+                <option value="science">🔬 Science</option>
+                <option value="history">📚 History</option>
+                <option value="geography">🌍 Geography</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="difficulty">
+                <i class="icon">📊</i>
+                Difficulty
+            </label>
+            <select id="difficulty">
+                <option value="all">All Difficulties</option>
+                <option value="easy">🟢 Easy</option>
+                <option value="medium">🟡 Medium</option>
+                <option value="hard">🔴 Hard</option>
+            </select>
+        </div>
+
+        <button id="startBtn" class="primary-btn">
+            ▶️ Start Quiz
+        </button>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">⏱️</div>
+                <div class="feature-text">Timed Questions</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🏆</div>
+                <div class="feature-text">Score Tracking</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📈</div>
+                <div class="feature-text">Progress Analytics</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quiz-screen" class="screen">
+        <div class="quiz-header">
+            <div class="progress-info">
+                <span id="question-number">Question 1 of 10</span>
+                <div class="timer-container">
+                    <span class="timer-label">Time:</span>
+                    <span id="timer" class="timer">30</span>
+                    <span class="timer-unit">s</span>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <h2 id="question">Loading question...</h2>
+            <div id="options" class="options-container">
+                <!-- Options will be populated by JavaScript -->
+            </div>
+            <button id="nextBtn" class="primary-btn" style="display: none;">
+                Next Question ➡️
+            </button>
+        </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="result-screen" class="screen">
+        <div class="result-header">
+            <div class="result-icon">🎉</div>
+            <h1>Quiz Complete!</h1>
+            <p>Here's how you performed:</p>
+        </div>
+
+        <div class="result-stats">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-value" id="score">0/10</div>
+                <div class="stat-label">Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📈</div>
+                <div class="stat-value" id="percentage">0%</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⏱️</div>
+                <div class="stat-value" id="time-taken">0:00</div>
+                <div class="stat-label">Time</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏅</div>
+                <div class="stat-value" id="rank">Novice</div>
+                <div class="stat-label">Rank</div>
+            </div>
+        </div>
+
+        <div class="result-actions">
+            <button id="playAgainBtn" class="primary-btn">
+                🔄 Play Again
+            </button>
+            <button id="viewLeaderboardBtn" class="secondary-btn">
+                🏆 View Leaderboard
+            </button>
+        </div>
+    </div>
+
+    <!-- Leaderboard Screen -->
+    <div id="leaderboard-screen" class="screen">
+        <div class="leaderboard-header">
+            <div class="leaderboard-icon">🏆</div>
+            <h1>Leaderboard</h1>
+            <p>Top performers across all categories</p>
+        </div>
+
+        <div class="leaderboard-container">
+            <div class="leaderboard-headers">
+                <span>Rank</span>
+                <span>Player</span>
+                <span>Score</span>
+                <span>Time</span>
+            </div>
+            <ul id="leaderboard-list" class="leaderboard-list">
+                <!-- Leaderboard entries will be populated by JavaScript -->
+            </ul>
+        </div>
+
+        <button id="backToMenuBtn" class="secondary-btn">
+            ⬅️ Back to Menu
+        </button>
+    </div>
+</div>
+
+<!-- Loading Overlay -->
+<div id="loading-overlay" class="loading-overlay" style="display: none;">
+    <div class="loading-spinner"></div>
+    <p>Loading...</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
